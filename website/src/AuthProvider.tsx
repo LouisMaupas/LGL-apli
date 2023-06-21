@@ -1,26 +1,11 @@
 // Creates an authentication context and a hook for accessing it. Also provides an authentication provider allowing access signing in / out, as well as the user data
 
 import React, { createContext, useContext, useState } from "react";
-
-interface AuthProviderProps {
-  children: React.ReactNode;
-}
-
-export interface User {
-  email?: string | null;
-  displayName?: string | null;
-  accessToken?: string | null;
-  phoneNumber?: string | null;
-  photoURL?: string | null;
-  uid?: string | null;
-  [key: string]: any;
-}
-
-interface AuthContextType {
-  user: any;
-  signin: (user: User, callback: VoidFunction) => void;
-  signout: (callback: VoidFunction) => void;
-}
+import {
+  AuthProviderProps,
+  User,
+  AuthContextType,
+} from "./interfaces/interfaces";
 
 // Create the context for user authentication
 const AuthContext = createContext<AuthContextType>(null!);
@@ -47,10 +32,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   /**
    * Updates the user data when he connects.
    *
-   * @param {any} userData - the new user data to be set
+   * @param {User} userData - the new user data to be set
    * @param {VoidFunction} callback - the function to be executed after setting user data
    */
-  const signin = (userData: any, callback: VoidFunction) => {
+  const signin = (userData: User, callback: VoidFunction) => {
     setUser(userData);
     callback();
   };
