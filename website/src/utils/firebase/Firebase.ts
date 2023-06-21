@@ -24,14 +24,12 @@ async function getAppInstance() {
 }
 
   // Get a list of cities from database to check if the API is working
-  async function getCities(db: Firestore) {
-    const citiesCol = collection(db, 'cities');
-    const citySnapshot = await getDocs(citiesCol);
-    const cityList = citySnapshot.docs.map(doc => doc.data());
-    return cityList;
-  }
-
-  // Test if the API is working
+  // async function getCities(db: Firestore) {
+  //   const citiesCol = collection(db, 'cities');
+  //   const citySnapshot = await getDocs(citiesCol);
+  //   const cityList = citySnapshot.docs.map(doc => doc.data());
+  //   return cityList;
+  // }
   // getCities(db).then((cities) => {
   //   console.log("api res fonctionne bien = ", cities);
   // })
