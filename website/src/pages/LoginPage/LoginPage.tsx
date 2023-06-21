@@ -4,6 +4,7 @@ import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getAppInstance } from "../../utils/firebase/Firebase";
 import { useEffect } from "react";
 import { useAuth } from "../../AuthProvider";
+import { User } from "../../AuthProvider";
 
 /**
  * Renders a login page that allows users to sign in with their credentials. If the login is successful,
@@ -41,7 +42,14 @@ const LoginPage = () => {
     const { username, password } = event.currentTarget;
     signInWithEmailAndPassword(authInstance, username.value, password.value)
       .then((userCredential) => {
-        auth?.signin(userCredential.user, () => {
+        console.log("uesrCredential", userCredential);
+        // Adapt the Firebase user object to match with User type
+        const user: User = {
+          email: userCredential.user.email,
+          displayName: userCredential.user.displayName, // This is where you might need to adjust depending on how the name is stored in Firebase
+          // TODO add others necessary fields
+        };
+        auth?.signin(user, () => {
           // Send them back to the page they tried to visit when they were
           // redirected to the login page.
           navigate(from, { replace: true });
