@@ -7,6 +7,12 @@ header {
     height: 10vh;
 }
 
-.layout {
-    height: 90vh;
+footer {
+    height: 10vh;
 }
+
+.layout {
+    height: 80vh;
+    overflow: auto;
+}
+
