@@ -4,8 +4,6 @@ import { initializeApp } from "firebase/app";
 // import { Firestore } from "firebase/firestore";
 // import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
-console.log("test !", import.meta.env.VITE_FIREBASE_API_KEY)
-
 // Firebase configuration
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY || process.env.VITE_FIREBASE_API_KEY,
