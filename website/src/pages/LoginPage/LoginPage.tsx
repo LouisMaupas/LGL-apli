@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getAppInstance } from "../../utils/firebase/Firebase";
 import { useEffect } from "react";
 import { useAuth } from "../../AuthProvider";
@@ -17,7 +17,7 @@ const LoginPage = () => {
     navigate = useNavigate(),
     location = useLocation(),
     [apiError, setApiError] = useState("");
-  let authInstance,
+  let authInstance: Auth,
     from = location.state?.from?.pathname || "/";
 
   useEffect(() => {

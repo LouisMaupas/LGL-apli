@@ -1,3 +1,5 @@
+// Creates an authentication context and a hook for accessing it. Also provides an authentication provider allowing access signing in / out, as well as the user data
+
 import React, { createContext, useContext, useState } from "react";
 
 interface User {

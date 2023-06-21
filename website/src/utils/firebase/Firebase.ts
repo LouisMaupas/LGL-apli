@@ -1,3 +1,5 @@
+// Initializes and configures Firebase, providing an asynchronous function getAppInstance to retrieve the Firebase app instance.
+
 // firebase
 import { Firestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
