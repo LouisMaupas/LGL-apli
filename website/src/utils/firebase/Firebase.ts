@@ -1,9 +1,8 @@
 // Initializes and configures Firebase, providing an asynchronous function getAppInstance to retrieve the Firebase app instance.
 
-// firebase
-import { Firestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+// import { Firestore } from "firebase/firestore";
+// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -14,7 +13,6 @@ const firebaseConfig = {
 
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
-const db : Firestore = getFirestore(app);
   
 /**
  * Returns the Firebase instance asynchronously.
@@ -26,6 +24,7 @@ async function getAppInstance() {
 }
 
   // Get a list of cities from database to check if the API is working
+  // const db : Firestore = getFirestore(app);
   // async function getCities(db: Firestore) {
   //   const citiesCol = collection(db, 'cities');
   //   const citySnapshot = await getDocs(citiesCol);
