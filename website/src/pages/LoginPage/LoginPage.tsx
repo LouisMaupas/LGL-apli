@@ -4,7 +4,7 @@ import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getAppInstance } from "../../utils/firebase/Firebase";
 import { useEffect } from "react";
 import { useAuth } from "../../AuthProvider";
-import { User } from "../../AuthProvider";
+import { User } from "../../interfaces/interfaces";
 
 /**
  * Renders a login page that allows users to sign in with their credentials. If the login is successful,

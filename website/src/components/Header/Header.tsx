@@ -39,9 +39,14 @@ const Header = (): JSX.Element => {
               </button>
             </li>
           ) : (
-            <li>
-              <Link to="/login">Se connecter</Link>
-            </li>
+            <>
+              <li>
+                <Link to="/login">Se connecter</Link>
+              </li>
+              <li>
+                <Link to="/register">S'inscrire</Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>
