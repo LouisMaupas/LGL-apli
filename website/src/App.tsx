@@ -10,11 +10,14 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Download from "./pages/Download/Download";
 import Profil from "./pages/Profil/Profil";
 import { AuthProvider, useAuth } from "./AuthProvider";
+import PrivacyAndTerms from "./pages/PrivacyAndTerms/PrivacyAndTerms";
+import NotFoundPage from "./pages/HttpError/NotFoundPage";
 
 /**
  * Renders the App component that wraps the entire application with the React Router and provides routing to child components.
@@ -32,6 +35,7 @@ const App = (): JSX.Element => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/download" element={<Download />} />
+              <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
               <Route
                 path="/profil"
                 element={
@@ -41,7 +45,9 @@ const App = (): JSX.Element => {
                 }
               />
             </Route>
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
+          <Footer />
         </AuthProvider>
       </Router>
     </>
