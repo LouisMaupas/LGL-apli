@@ -2,6 +2,10 @@
 
 import React, { createContext, useContext, useState } from "react";
 
+interface AuthProviderProps {
+  children: React.ReactNode;
+}
+
 interface User {
   email: string;
   name: string;
@@ -33,8 +37,8 @@ const useAuth = (): AuthContextType | null => {
  * @param {React.FC} children - the child components to be wrapped with the authentication context.
  * @return {React.ReactNode} the wrapped child components with the authentication context.
  */
-const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
+const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
 
   /**
    * Updates the user data when he connects.
