@@ -15,6 +15,7 @@ import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Download from "./pages/Download/Download";
 import Profil from "./pages/Profil/Profil";
+import Cards from "./pages/Cards/Cards";
 import { AuthProvider, useAuth } from "./AuthProvider";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms/PrivacyAndTerms";
 import NotFoundPage from "./pages/HttpError/NotFoundPage";
@@ -35,6 +36,7 @@ const App = (): JSX.Element => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/download" element={<Download />} />
+              <Route path="/cards" element={<Cards />} />
               <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
               <Route
                 path="/profil"
