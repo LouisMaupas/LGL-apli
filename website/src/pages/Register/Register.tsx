@@ -19,10 +19,8 @@ const Register = () => {
       return;
     }
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
+      .then(() => {
         setMessage(`Votre compte a bien été créé.`);
-        console.log("usercre = ", userCredential);
       })
       .catch((error) => {
         const errorCode = error.code;
