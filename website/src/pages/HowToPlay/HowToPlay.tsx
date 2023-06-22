@@ -12,7 +12,7 @@ const HowToPlay = () => {
     <>
       <div>
         <p>
-          Duel de règne est un jeu de cartes stratégique se déroulant en deux
+          Duel of Reigns est un jeu de cartes stratégique se déroulant en deux
           manches. Chaque manche est composée de 12 duels, où deux joueurs
           s'affrontent en posant des cartes. Le but est de remporter le plus de
           points possible pour devenir le gagnant de la partie. Chaque joueur
@@ -87,9 +87,11 @@ const HowToPlay = () => {
         <ul>
           <li>
             <span id="power">Une puissance</span> normale / une puissance
-            boostée quand son espèce règne.
+            boostée quand sa faction règne.
           </li>
-          <li>Une valeur normale / une valeur boostée quand son règne.</li>
+          <li>
+            Une valeur normale / une valeur boostée quand sa faction règne.
+          </li>
           <li>Facultativement un effet.</li>
           <li>Un coût en pièce d'or.</li>
         </ul>

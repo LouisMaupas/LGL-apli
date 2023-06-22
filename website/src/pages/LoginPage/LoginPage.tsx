@@ -64,7 +64,7 @@ const LoginPage = () => {
   return (
     <div>
       {from !== "/" ? (
-        <div>Vous devez vous connectez pour accèder à la page {from}</div>
+        <div>Vous devez vous connecter pour accéder à la page {from}</div>
       ) : null}
 
       <form onSubmit={handleLogin}>

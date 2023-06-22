@@ -12,7 +12,7 @@ const PrivacyAndTerms = (): JSX.Element => {
       <p>
         Cette politique de confidentialité s'applique aux informations que nous
         collectons à propos de vous lorsque vous utilisez notre site web
-        (https://www.[votresite].com) et notre launcher de duel de règne.
+        (https://www.[votresite].com) et notre launcher de Duel of Reigns.
       </p>
 
       <h2>1. Informations que nous collectons</h2>

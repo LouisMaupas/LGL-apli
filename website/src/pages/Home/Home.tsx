@@ -65,8 +65,8 @@ const Home = () => {
         }
       >
         <h2>
-          Dans LGL la prise en main est un jeu d'enfant, mais la maîtrise est
-          l'œuvre des maîtres !
+          Dans Duel of Reigns la prise en main est un jeu d'enfant, mais la
+          maîtrise est l'œuvre des maîtres !
         </h2>
         <p>
           Plongez dans l'univers de "LGL", un jeu de cartes stratégique établi
@@ -90,10 +90,10 @@ const Home = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Présentation du mode 1 joueur
+              Présentation du mode un joueur
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Parcequ'on a pas encore dev le multi, viens tester le mode 1
+              Parce qu'on a pas encore dev le multi, viens tester le mode 1
               joueur !
             </Typography>
           </CardContent>
@@ -123,8 +123,8 @@ const Home = () => {
               Notes de mise à jour 0.0.1
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Ok donc là on a pas grands chose à dire pour l'instant mais la
-              suite arrive, vous êtes pas prêt !
+              Ok donc on n'a pas grand-chose à dire pour l'instant mais la suite
+              arrive, vous êtes pas prêt !
             </Typography>
           </CardContent>
           <CardActions>
@@ -139,7 +139,7 @@ const Home = () => {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Vous n'arrivez pas à dépasser le rang gold sur LOL ? Devenez
-              joueur pro de LGL !
+              joueur pro de Duel of Reigns !
             </Typography>
           </CardContent>
           <CardActions>
@@ -153,11 +153,11 @@ const Home = () => {
           <span id="faction">Factions</span>
         </h3>
         <p>
-          Il existe plusieurs factions au sein de Duel de Règnes. Chacune
-          d'entre elles apporte sa propre perspective, ses motivations et son
-          rôle unique. Ces factions peuvent former des alliances ou se lancer
-          dans des affrontements épiques. Voici un aperçu des principales
-          factions que vous pouvez rencontrer.
+          Il existe plusieurs factions au sein de Duel Reigns. Chacune d'entre
+          elles apporte sa propre perspective, ses motivations et son rôle
+          unique. Ces factions peuvent former des alliances ou se lancer dans
+          des affrontements épiques. Voici un aperçu des principales factions
+          que vous pouvez rencontrer.
         </p>
         <Carousel
           showThumbs={false}
