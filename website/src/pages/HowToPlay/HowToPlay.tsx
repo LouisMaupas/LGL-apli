@@ -1,6 +1,4 @@
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Button, Paper, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Link } from "react-router-dom";
@@ -8,10 +6,6 @@ import { Link } from "react-router-dom";
 import iconValue from "../../assets/icon_value.png";
 import iconCost from "../../assets/icon_cost.png";
 import iconPower from "../../assets/icon_power.png";
-import pictureAquaticElf from "../../assets/picture_aquatic_elf.png";
-import pictureBehemoth from "../../assets/picture_behemoth.png";
-import pictureBossOrc from "../../assets/picture_boss_orc.png";
-import pictureKngiht from "../../assets/picture_knight.png";
 
 const HowToPlay = () => {
   return (
