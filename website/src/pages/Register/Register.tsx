@@ -4,7 +4,6 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 import { Button, TextField, Container, Typography } from "@mui/material";
 
 const Register = () => {
@@ -14,8 +13,7 @@ const Register = () => {
     [message, setMessage] = useState(""),
     emailRegex = /^\S+@\S+\.\S+$/,
     isValidEmail = (email: string) => emailRegex.test(email),
-    auth = getAuth(),
-    db = getFirestore();
+    auth = getAuth();
 
   /**
    * Handles user registration by creating a new user account and updating their pseudo.
