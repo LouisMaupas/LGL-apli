@@ -14,8 +14,11 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.5",
     "firebase": "^9.22.2",
+    "i18next": "^23.2.3",
+    "i18next-browser-languagedetector": "^7.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.13.0"
   },

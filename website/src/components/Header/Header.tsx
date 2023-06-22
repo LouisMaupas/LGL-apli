@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../AuthProvider";
 import "./header.css";
 import logo from "../../assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 /**
  * Renders the Header component
@@ -10,6 +11,11 @@ import logo from "../../assets/logo.png";
  */
 const Header = (): JSX.Element => {
   const auth = useAuth();
+  const { i18n } = useTranslation();
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <header>
       <nav>
@@ -51,6 +57,11 @@ const Header = (): JSX.Element => {
               </li>
               <li>
                 <Link to="/register">S'inscrire</Link>
+              </li>
+              <li>
+                <button onClick={() => changeLanguage("en")}>
+                  🌍 I speak English
+                </button>
               </li>
             </>
           )}

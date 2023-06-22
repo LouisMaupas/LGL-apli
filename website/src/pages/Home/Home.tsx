@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
@@ -48,6 +49,7 @@ const Home = () => {
     },
   ];
 
+  const { t } = useTranslation();
   const [isCardFlipped, setCardFlipped] = useState(false);
 
   const handleCardClick = () => {
@@ -65,8 +67,9 @@ const Home = () => {
         }
       >
         <h2>
-          Dans Duel of Reigns la prise en main est un jeu d'enfant, mais la
-          maîtrise est l'œuvre des maîtres !
+          {t(
+            "Dans Duel of Reigns la prise en main est un jeu d'enfant, mais la maîtrise est l'œuvre des maîtres !         "
+          )}
         </h2>
         <p>
           Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique
