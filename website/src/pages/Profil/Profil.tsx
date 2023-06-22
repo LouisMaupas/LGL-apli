@@ -4,9 +4,10 @@ const Profil = () => {
   const auth = useAuth();
   return (
     <>
-      <h3>La page profil est Protected</h3>
+      <p>Hello {auth?.user?.displayName}</p>
       <p>
-        Hello {auth?.user?.name} {auth?.user?.email}
+        Pour l'instant j'ai un peu la flemme 🥱 mais bientot tu pourra modifier
+        ton profil ici 👇.
       </p>
     </>
   );

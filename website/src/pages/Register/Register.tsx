@@ -1,17 +1,28 @@
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import { Button, TextField, Container, Typography } from "@mui/material";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const emailRegex = /^\S+@\S+\.\S+$/;
+  const [email, setEmail] = useState(""),
+    [password, setPassword] = useState(""),
+    [pseudo, setPseudo] = useState(""),
+    [message, setMessage] = useState(""),
+    emailRegex = /^\S+@\S+\.\S+$/,
+    isValidEmail = (email: string) => emailRegex.test(email),
+    auth = getAuth(),
+    db = getFirestore();
 
-  const isValidEmail = (email: string) => emailRegex.test(email);
-
-  const auth = getAuth();
-
+  /**
+   * Handles user registration by creating a new user account and updating their pseudo.
+   *
+   * @param {React.FormEvent} e - the form event that triggers the registration process.
+   * @return {void}.
+   */
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!emailRegex.test(email)) {
@@ -19,7 +30,17 @@ const Register = () => {
       return;
     }
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((userCredential) => {
+        const user = userCredential.user;
+        updateProfile(user, { displayName: pseudo })
+          .then(() => {
+            // ok
+          })
+          .catch((error) => {
+            setMessage(
+              `ERREUR WHEN UPDATE DISPLAYNAME ${error} ${error.message}`
+            );
+          });
         setMessage(`Votre compte a bien été créé.`);
       })
       .catch((error) => {
@@ -35,6 +56,18 @@ const Register = () => {
         Inscription
       </Typography>
       <form onSubmit={handleRegister}>
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="pseudo"
+          label="Pseudo"
+          name="pseudo"
+          autoFocus
+          value={pseudo}
+          onChange={(e) => setPseudo(e.target.value)}
+        />
         <TextField
           variant="outlined"
           margin="normal"
