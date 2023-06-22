@@ -69,8 +69,8 @@ const Home = () => {
           maîtrise est l'œuvre des maîtres !
         </h2>
         <p>
-          Plongez dans l'univers de "LGL", un jeu de cartes stratégique établi
-          au cœur d'un monde héroïque-fantaisie. Tissez des alliances
+          Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique
+          établi au cœur d'un monde héroïque-fantaisie. Tissez des alliances
           stratégiques entre factions, consolidant ainsi votre pouvoir, afin
           d'imposer votre règne indéfectible !
         </p>
