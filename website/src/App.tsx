@@ -20,6 +20,7 @@ import { AuthProvider, useAuth } from "./AuthProvider";
 import PrivacyAndTerms from "./pages/PrivacyAndTerms/PrivacyAndTerms";
 import NotFoundPage from "./pages/HttpError/NotFoundPage";
 import HowToPlay from "./pages/HowToPlay/HowToPlay";
+import Register from "./pages/Register/Register";
 
 /**
  * Renders the App component that wraps the entire application with the React Router and provides routing to child components.
@@ -39,6 +40,7 @@ const App = (): JSX.Element => {
               <Route path="/download" element={<Download />} />
               <Route path="/cards" element={<Cards />} />
               <Route path="/how-to-play" element={<HowToPlay />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
               <Route
                 path="/profil"
