@@ -26,6 +26,9 @@ const Header = (): JSX.Element => {
             <Link to={"/cards"}>Bibliothèque</Link>
           </li>
           <li>
+            <Link to="/how-to-play">Comment jouer</Link>
+          </li>
+          <li>
             <Link to="/download">Téléchargement</Link>
           </li>
           <li>

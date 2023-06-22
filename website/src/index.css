@@ -2,6 +2,9 @@ body {
   --main-bg-color: brown;
   --main-font-color: brown;
   --main-color: brown;
+  --secondary-color: #646cff;
+  --secondary-color--darker: #535bf2;
+  --secondary-color--more-darker: #535bf2;
 
   margin: 0;
   width: 100vw;
@@ -26,11 +29,11 @@ body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--secondary-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--secondary-color--darker);
 }
 
 h1 {
@@ -51,7 +54,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--secondary-color);
 }
 
 button:focus,

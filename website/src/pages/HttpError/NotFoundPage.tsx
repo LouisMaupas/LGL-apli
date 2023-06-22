@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import backgroundNotFound from "../../assets/background_page_not_found.jpg";
+import "./not_found.css";
 
 const NotFoundPage = (): JSX.Element => {
   const navigate = useNavigate();
@@ -8,10 +10,15 @@ const NotFoundPage = (): JSX.Element => {
   };
 
   return (
-    <div className="layout">
-      <h1>404 - Page non trouvée</h1>
-      <p>La page demandée n'existe pas.</p>
-      <button onClick={handleGoBack}>Retour</button>
+    <div
+      className="content"
+      style={{ backgroundImage: `url(${backgroundNotFound})` }}
+    >
+      <div className="page-not-found">
+        <h1>404 - Page non trouvée</h1>
+        <p>La page demandée n'existe pas.</p>
+        <button onClick={handleGoBack}>Retour</button>
+      </div>
     </div>
   );
 };
