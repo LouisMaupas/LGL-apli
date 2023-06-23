@@ -65,14 +65,14 @@ const Header = (): JSX.Element => {
               <li>
                 <Link to="/register">{t("Register")}</Link>
               </li>
-              <li>
-                <Select value={i18n.language} onChange={changeLanguage}>
-                  <MenuItem value={"en"}>🌍English</MenuItem>
-                  <MenuItem value={"fr"}>🌍Français</MenuItem>
-                </Select>
-              </li>
             </>
           )}
+          <li>
+            <Select value={i18n.language} onChange={changeLanguage}>
+              <MenuItem value={"en"}>🌍English</MenuItem>
+              <MenuItem value={"fr"}>🌍Français</MenuItem>
+            </Select>
+          </li>
         </ul>
       </nav>
     </header>
