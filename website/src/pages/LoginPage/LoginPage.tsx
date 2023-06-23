@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getAppInstance } from "../../utils/firebase/Firebase";
 import { useEffect } from "react";
@@ -15,6 +16,7 @@ import { User } from "../../interfaces/interfaces";
  */
 const LoginPage = () => {
   const auth = useAuth(),
+    { t } = useTranslation(),
     navigate = useNavigate(),
     location = useLocation(),
     [apiError, setApiError] = useState("");
@@ -42,7 +44,6 @@ const LoginPage = () => {
     const { email, password } = event.currentTarget;
     signInWithEmailAndPassword(authInstance, email.value, password.value)
       .then((userCredential) => {
-        console.log("uesrCredential", userCredential);
         // Adapt the Firebase user object to match with User type
         const user: User = {
           email: userCredential.user.email,
@@ -56,25 +57,22 @@ const LoginPage = () => {
       })
       .catch((error) => {
         setApiError(
-          `Erreur lors de la connexion ${error.code} ${error.message}`
+          `${t("login.connexion.error")} ${error.code} ${error.message}`
         );
       });
   };
 
   return (
     <div>
-      {from !== "/" ? (
-        <div>Vous devez vous connecter pour accéder à la page {from}</div>
-      ) : null}
-
+      {from !== "/" ? <div>{t("login.from.text")}</div> : null}
       <form onSubmit={handleLogin}>
         <label>
-          email: <input name="email" type="email" />
+          {t("login.form.email")} : <input name="email" type="email" />
         </label>{" "}
         <label>
-          Mot de passe: <input name="password" type="password" />
+          {t("login.form.password")} : <input name="password" type="password" />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit">{t("login.form.submit")}</button>
       </form>
 
       <p>{apiError}</p>
