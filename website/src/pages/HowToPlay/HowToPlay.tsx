@@ -60,32 +60,24 @@ const HowToPlay = () => {
         <p>{t("howToPlay.factionsDescription")}</p>
 
         <h3>{t("howToPlay.cards")}</h3>
-        <Link to={"/cards"}>{t("howToPlay.cards.link")}</Link>
-        <p>{t("howToPlay.cards.info")}</p>
+        <Link to={"/cards"}>{t("howToPlay.cardsLink")}</Link>
+        <p>{t("howToPlay.cardsInfo")}</p>
         <ul>
           <li>
-            <span id="power">Une puissance</span> normale / une puissance
-            boostée quand sa faction règne.
+            <span id="power">{t("howToPlay.power")}</span>{" "}
+            {t("howToPlay.powerDesc")}
           </li>
-          <li>
-            Une valeur normale / une valeur boostée quand sa faction règne.
-          </li>
-          <li>Facultativement un effet.</li>
-          <li>Un coût en pièce d'or.</li>
+          <li>{t("howToPlay.normalValue")}</li>
+          <li>{t("howToPlay.optionalEffect")}</li>
+          <li>{t("howToPlay.goldCost")}</li>
         </ul>
 
-        <h3>Deck</h3>
-        <span id="deck">Un deck :</span>
+        <h3>{t("howToPlay.deck")}</h3>
+        <span id="deck">{t("howToPlay.desckDescription")}</span>
         <ul>
-          <li>
-            Est constitué de 6 cartes de 4 factions différentes (24 cartes au
-            total).
-          </li>
-          <li>Doit coûter au total moins de 240 po.</li>
-          <li>
-            Il est possible d'avoir des cartes en 2 exemplaires (selon la
-            rareté).
-          </li>
+          <li>{t("howToPlay.deckComposition")}</li>
+          <li>{t("howToPlay.deckCostLimit")}</li>
+          <li>{t("howToPlay.cardDuplicates")}</li>
         </ul>
       </div>
     </>
