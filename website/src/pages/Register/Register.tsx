@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -9,9 +10,12 @@ import { Button, TextField, Container, Typography } from "@mui/material";
 const Register = () => {
   const [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
+    [confirmPassword, setConfirmPassword] = useState(""),
     [pseudo, setPseudo] = useState(""),
     [message, setMessage] = useState(""),
+    { t } = useTranslation(),
     emailRegex = /^\S+@\S+\.\S+$/,
+    passwordsMatch = password === confirmPassword,
     isValidEmail = (email: string) => emailRegex.test(email),
     auth = getAuth();
 
@@ -24,7 +28,11 @@ const Register = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!emailRegex.test(email)) {
-      setMessage("Veuillez entrer une adresse e-mail valide.");
+      setMessage(`${t("register.form.error")}`);
+      return;
+    }
+    if (!passwordsMatch) {
+      setMessage(`${t("register.form.error.passwordsDontMatch")}`);
       return;
     }
     createUserWithEmailAndPassword(auth, email, password)
@@ -36,10 +44,12 @@ const Register = () => {
           })
           .catch((error) => {
             setMessage(
-              `ERREUR WHEN UPDATE DISPLAYNAME ${error} ${error.message}`
+              `${t("register.form.error.displayName")}} ${error} ${
+                error.message
+              }`
             );
           });
-        setMessage(`Votre compte a bien été créé.`);
+        setMessage(`${t("register.form.success")}`);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -51,7 +61,7 @@ const Register = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Typography component="h1" variant="h5">
-        Inscription
+        {t("register.form.title")}
       </Typography>
       <form onSubmit={handleRegister}>
         <TextField
@@ -60,7 +70,7 @@ const Register = () => {
           required
           fullWidth
           id="pseudo"
-          label="Pseudo"
+          label={t("register.form.pseudo")}
           name="pseudo"
           autoFocus
           value={pseudo}
@@ -72,7 +82,7 @@ const Register = () => {
           required
           fullWidth
           id="email"
-          label="Adresse email"
+          label={t("register.form.email")}
           name="email"
           autoFocus
           value={email}
@@ -84,11 +94,23 @@ const Register = () => {
           required
           fullWidth
           name="password"
-          label="Mot de passe"
+          label={t("register.form.password")}
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          name="confirmPassword"
+          label={t("register.form.confirmPassword")}
+          type="password"
+          id="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
         {message && <p>{message}</p>}
         <Button
@@ -98,7 +120,7 @@ const Register = () => {
           color="primary"
           disabled={!isValidEmail(email)}
         >
-          S'inscrire
+          {t("register.form.send")}
         </Button>
       </form>
     </Container>
