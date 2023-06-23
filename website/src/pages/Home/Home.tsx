@@ -66,20 +66,11 @@ const Home = () => {
           } as React.CSSProperties
         }
       >
-        <h2>
-          {t(
-            "Dans Duel of Reigns la prise en main est un jeu d'enfant, mais la maîtrise est l'œuvre des maîtres !         "
-          )}
-        </h2>
-        <p>
-          Plongez dans l'univers de Duel of Reigns, un jeu de cartes stratégique
-          établi au cœur d'un monde héroïque-fantaisie. Tissez des alliances
-          stratégiques entre factions, consolidant ainsi votre pouvoir, afin
-          d'imposer votre règne indéfectible !
-        </p>
+        <h2>{t("presentation_quote")}</h2>
+        <p>{t("presentation_desc")}</p>
         <p>
           <Button>
-            <Link to="/download">Je veux jouer !</Link>
+            <Link to="/download">{t("play_button")}</Link>
           </Button>
         </p>
       </div>
@@ -93,75 +84,65 @@ const Home = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Présentation du mode un joueur
+              {t("news_new_mode")}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Parce qu'on a pas encore dev le multi, viens tester le mode 1
-              joueur !
+              {t("news_new_mode_desc")}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Voir plus</Button>
+            <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia sx={{ height: 230 }} image={thumbElf} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Présentation de la nouvelle faction : les elfes
+              {t("news_new_faction")}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Serez-vous capable de rallier à votre cause cette faction
-              millénaire ? Découvrez les elfes et leurs pouvoirs ancestraux !
+              {t("news_new_faction_desc")}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Voir plus</Button>
+            <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia sx={{ height: 230 }} image={thumbGear} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Notes de mise à jour 0.0.1
+              {t("news_update")}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Ok donc on n'a pas grand-chose à dire pour l'instant mais la suite
-              arrive, vous êtes pas prêt !
+              {t("news_update_desc")}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Voir plus</Button>
+            <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia sx={{ height: 230 }} image={thumbMulti} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Scène eSport & tournois
+              {t("news_esport")}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Vous n'arrivez pas à dépasser le rang gold sur LOL ? Devenez
-              joueur pro de Duel of Reigns !
+              {t("news_esport_desc")}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Voir plus</Button>
+            <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
       </div>
 
       <div className="factions">
         <h3>
-          <span id="faction">Factions</span>
+          <span id="faction">{t("home.factions_title")}</span>
         </h3>
-        <p>
-          Il existe plusieurs factions au sein de Duel Reigns. Chacune d'entre
-          elles apporte sa propre perspective, ses motivations et son rôle
-          unique. Ces factions peuvent former des alliances ou se lancer dans
-          des affrontements épiques. Voici un aperçu des principales factions
-          que vous pouvez rencontrer.
-        </p>
+        <p>{t("home.factions_description")}</p>
         <Carousel
           showThumbs={false}
           showStatus={false}
@@ -190,15 +171,9 @@ const Home = () => {
       </div>
 
       <div className="cards">
-        <h3>Cartes</h3>
-        <Link to={"/cards"}>Voir toutes les cartes</Link>
-        <p>
-          Les cartes sont représentées par des illustrations uniques et
-          accompagnées de diverses informations telles que sa puissance, sa
-          faction, parfois un effet. Ces informations définissent la valeur
-          tactique de chaque carte et sont à prendre en compte lors de la
-          construction de son deck.
-        </p>
+        <h3>{t("home.cards_title")}</h3>
+        <Link to={"/cards"}>{t("home.cards_link")}</Link>
+        <p>{t("home.cards_description")}</p>
         <div className="cards__card">
           <img
             onClick={handleCardClick}
@@ -210,47 +185,32 @@ const Home = () => {
             <ul>
               <li>
                 <span id="power">
-                  {" "}
                   <a href="#power">
-                    puissance
+                    {t("home.cards_power")}
                     <img height={30} src={iconPower}></img>
                   </a>
                 </span>{" "}
-                normale / une puissance boostée quand sa faction règne.
+                {t("home.cards_power_description")}
               </li>
               <li>
-                Une{" "}
+                {t("home.cards_value_a")}
                 <a href="#value">
-                  valeur
+                  {t("home.cards_value_value")}
                   <img height={30} src={iconValue}></img>
                 </a>{" "}
-                normale / une valeur boostée quand sa faction règne.
+                {t("home.cards_value_description")}
               </li>
-              <li>Facultativement un effet.</li>
+              <li> {t("home.cards_effect_option")}</li>
               <li>
-                Un{" "}
+                {t("home.cards_cost_a")}
                 <a href="#po">
-                  coût
+                  {t("home.cards_cost_cost")}
                   <img height={30} src={iconCost}></img>
                 </a>{" "}
-                en pièce d'or (PO), pour pouvoir ajouter la carte au deck.
+                {t("home.cards_cost_description")}
               </li>
             </ul>
           </div>
-        </div>
-        <div className="card_deck">
-          <span id="deck">Un deck :</span>
-          <ul>
-            <li>
-              Est constitué de 6 cartes de 4 factions différentes (24 cartes au
-              total).
-            </li>
-            <li>Doit coûter au total moins de 240 po.</li>
-            <li>
-              Il est possible d'avoir des cartes en 2 exemplaires (selon la
-              rareté).
-            </li>
-          </ul>
         </div>
       </div>
     </div>

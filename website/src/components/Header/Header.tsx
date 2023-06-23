@@ -3,6 +3,7 @@ import { useAuth } from "../../AuthProvider";
 import "./header.css";
 import logo from "../../assets/logo.png";
 import { useTranslation } from "react-i18next";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 
 /**
  * Renders the Header component
@@ -11,9 +12,15 @@ import { useTranslation } from "react-i18next";
  */
 const Header = (): JSX.Element => {
   const auth = useAuth();
-  const { i18n } = useTranslation();
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const { t, i18n } = useTranslation();
+
+  /**
+   * Changes the language based on the value provided in the event object.
+   *
+   * @param {React.ChangeEvent<{ value: unknown }>} event - The event object containing the value of the language to be changed to.
+   */
+  const changeLanguage = (event: SelectChangeEvent) => {
+    i18n.changeLanguage(event.target.value as string);
   };
 
   return (
@@ -26,19 +33,19 @@ const Header = (): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to="/">Accueil</Link>
+            <Link to="/">{t("Home")}</Link>
           </li>
           <li>
-            <Link to={"/cards"}>Bibliothèque</Link>
+            <Link to={"/cards"}>{t("Library")}</Link>
           </li>
           <li>
-            <Link to="/how-to-play">Comment jouer</Link>
+            <Link to="/how-to-play">{t("How_to_play")}</Link>
           </li>
           <li>
-            <Link to="/download">Téléchargement</Link>
+            <Link to="/download">{t("Download")}</Link>
           </li>
           <li>
-            <Link to="/profil">Profil</Link>
+            <Link to="/profil">{t("Profil")}</Link>
           </li>
           {auth?.user ? (
             <li>
@@ -47,21 +54,22 @@ const Header = (): JSX.Element => {
                   auth?.signout(() => {});
                 }}
               >
-                Se deconnecter
+                {t("Logout")}
               </button>
             </li>
           ) : (
             <>
               <li>
-                <Link to="/login">Se connecter</Link>
+                <Link to="/login">{t("Login")}</Link>
               </li>
               <li>
-                <Link to="/register">S'inscrire</Link>
+                <Link to="/register">{t("Register")}</Link>
               </li>
               <li>
-                <button onClick={() => changeLanguage("en")}>
-                  🌍 I speak English
-                </button>
+                <Select value={i18n.language} onChange={changeLanguage}>
+                  <MenuItem value={"en"}>🌍English</MenuItem>
+                  <MenuItem value={"fr"}>🌍Français</MenuItem>
+                </Select>
               </li>
             </>
           )}
