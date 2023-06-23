@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 const Cards = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <h1>Bibliothèque de cartes</h1>
-      <p>Prochainement : la liste de toutes les cartes.</p>
+      <h1>{t("cards.title")}</h1>
+      <p>{t("cards.text")}</p>
     </>
   );
 };

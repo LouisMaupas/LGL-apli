@@ -40,7 +40,17 @@ const resources = {
         "home.cards_effect_option": "Optionally an effect",
         "home.cards_cost_a": "A ",
         "home.cards_cost_cost": "cost",
-        "home.cards_cost_description": "in gold pieces (GP), to be able to add the card to the deck."
+        "home.cards_cost_description": "in gold pieces (GP), to be able to add the card to the deck.",
+        // Cards
+        "cards.title": "Cards library",
+        "cards.text": "Coming soon: the list of all cards.",
+        // Download
+        "download.title": "Downloads",
+        "download.text": "Click to download Duel of Reigns",
+        // Profil
+        "profil.title": "🫡 Hello",
+        "profil.text": "For the moment, I'm a little lazy 🥱 but soon you will be able to modify your profile here 👇.",
+        // Login
     }
   },
   fr: {
@@ -83,6 +93,17 @@ const resources = {
         "home.cards_cost_a": "Un ",
         "home.cards_cost_cost": "coût",
         "home.cards_cost_description": "en pièce d'or (PO), pour pouvoir ajouter la carte au deck.",
+        // Cards
+        "cards.title": "Bibliothèque de cartes",
+        "cards.text": "Prochainement : la liste de toutes les cartes.",
+        // Download
+        "download.title": "Téléchargements",
+        "download.text": "Cliquez pour télécharger Duel of Reigns",
+        // Profil
+        "profil.title": "🫡 Hello ",
+        "profil.text": "Pour l'instant, j'ai un peu la flemme 🥱 mais bientôt tu pourras modifier ton profil ici 👇.",
+        // Login
+
     }
   }
 };
