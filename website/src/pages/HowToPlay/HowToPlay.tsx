@@ -13,25 +13,25 @@ const HowToPlay = () => {
       <div>
         <p>
           {t("howToPlay.description.term1")}
-          {t("howToPlay.description.term2")}
-          <a href="#deck">{t("howToPlay.description.term3")}</a>
-          {t("howToPlay.description.term4")}
-          <a href="#faction">{t("howToPlay.description.term5")}</a>
-          {t("howToPlay.description.term6")}
+          {t("howToPlay.description.term2")}{" "}
+          <a href="#deck">{t("howToPlay.description.term3")}</a>{" "}
+          {t("howToPlay.description.term4")}{" "}
+          <a href="#faction">{t("howToPlay.description.term5")}</a>{" "}
+          {t("howToPlay.description.term6")}{" "}
           <a href="#power">
             {t("howToPlay.description.term7")}
             <img height={30} src={iconPower}></img>
-          </a>
-          {t("howToPlay.description.term8")}
+          </a>{" "}
+          {t("howToPlay.description.term8")}{" "}
           <a href="#value">
             {t("howToPlay.description.term9")}
             <img height={30} src={iconValue}></img>
-          </a>
-          {t("howToPlay.description.term10")}
+          </a>{" "}
+          {t("howToPlay.description.term10")}{" "}
           <a href="#po">
             {t("howToPlay.description.term11")}
             <img height={30} src={iconCost}></img>
-          </a>
+          </a>{" "}
           {t("howToPlay.description.term12")}
         </p>
         <h3>{t("howToPlay.rules")}</h3>
@@ -59,9 +59,9 @@ const HowToPlay = () => {
         </h3>
         <p>{t("howToPlay.factionsDescription")}</p>
 
-        <h3>{t("howToPlay.cards")}</h3>
-        <Link to={"/cards"}>{t("howToPlay.cardsLink")}</Link>
-        <p>{t("howToPlay.cardsInfo")}</p>
+        <h3>{t("howToPlay.cards.cards")}</h3>
+        <Link to={"/cards"}>{t("howToPlay.cards.link")}</Link>
+        <p>{t("howToPlay.cards.info")}</p>
         <ul>
           <li>
             <span id="power">{t("howToPlay.power")}</span>{" "}
@@ -73,7 +73,7 @@ const HowToPlay = () => {
         </ul>
 
         <h3>{t("howToPlay.deck")}</h3>
-        <span id="deck">{t("howToPlay.desckDescription")}</span>
+        <span id="deck">{t("howToPlay.deckDescription")}</span>
         <ul>
           <li>{t("howToPlay.deckComposition")}</li>
           <li>{t("howToPlay.deckCostLimit")}</li>
