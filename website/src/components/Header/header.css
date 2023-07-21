@@ -47,4 +47,14 @@ header {
   button:hover {
     background-color: #555;
   }
+
+  @media only screen and (max-width: 600px) {
+    header {
+      height: auto;
+    }
+
+    .logo {
+      width: 25px;
+    }
+}
   

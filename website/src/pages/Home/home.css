@@ -54,4 +54,21 @@
     justify-content: center
   }
   
+  @media only screen and (max-width: 600px) {
+    .news {
+        flex-direction: column;
+    }
 
+    .news__card {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .factions {
+        padding: 0;
+    }
+
+    .cards__card {
+        flex-direction: column;
+    }
+  }

@@ -75,7 +75,7 @@ const Home = () => {
         </p>
       </div>
       <div className="news">
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} className="news__card">
           <CardMedia
             sx={{ height: 230 }}
             image={thumbForest}
@@ -95,7 +95,7 @@ const Home = () => {
             </Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} className="news__card">
           <CardMedia sx={{ height: 230 }} image={thumbElf} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -109,7 +109,7 @@ const Home = () => {
             <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} className="news__card">
           <CardMedia sx={{ height: 230 }} image={thumbGear} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -123,7 +123,7 @@ const Home = () => {
             <Button size="small">{t("see_more")}</Button>
           </CardActions>
         </Card>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} className="news__card">
           <CardMedia sx={{ height: 230 }} image={thumbMulti} title="elf" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
