@@ -36,12 +36,9 @@ const App = (): JSX.Element => {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/download" element={<Download />} />
               <Route path="/cards" element={<Cards />} />
               <Route path="/how-to-play" element={<HowToPlay />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
+              <Route path="/download" element={<Download />} />
               <Route
                 path="/profil"
                 element={
@@ -50,6 +47,9 @@ const App = (): JSX.Element => {
                   </RequireAuth>
                 }
               />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
             </Route>
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>

@@ -4,6 +4,14 @@ interface HttpErrorProps {
     message: string;
   }
 
+  interface NewsProps {
+    id: number;
+    title: string;
+    content: string;
+    image: string;
+    tag: string;
+  }
+
   interface AuthProviderProps {
     children: React.ReactNode;
   }
@@ -24,4 +32,4 @@ interface HttpErrorProps {
     signout: (callback: VoidFunction) => void;
   }
 
-export type { HttpErrorProps, AuthProviderProps, AuthContextType, User };
+export type { HttpErrorProps, AuthProviderProps, AuthContextType, User, NewsProps };
