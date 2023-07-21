@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  Firestore,
+} from "firebase/firestore";
 import { getAppInstance } from "../../utils/firebase/Firebase";
 
 // Fonction utilitaire pour récupérer les nouvelles depuis Firestore
-async function getNewsList(db) {
+async function getNewsList(db: Firestore) {
   const newsCol = collection(db, "news");
   const newsSnapshot = await getDocs(newsCol);
   const newsList = newsSnapshot.docs.map((doc) => doc.data());

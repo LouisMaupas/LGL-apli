@@ -7,7 +7,6 @@ import {
   useLocation,
   Navigate,
   Outlet,
-  useParams,
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
