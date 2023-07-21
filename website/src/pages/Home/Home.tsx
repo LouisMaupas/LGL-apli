@@ -74,7 +74,6 @@ const Home = () => {
           </Button>
         </p>
       </div>
-
       <div className="news">
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
@@ -91,7 +90,9 @@ const Home = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">{t("see_more")}</Button>
+            <Button size="small">
+              <Link to={"/news"}>{t("see_more")}</Link>
+            </Button>
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }}>

@@ -7,6 +7,7 @@ import {
   useLocation,
   Navigate,
   Outlet,
+  useParams,
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -21,6 +22,7 @@ import PrivacyAndTerms from "./pages/PrivacyAndTerms/PrivacyAndTerms";
 import NotFoundPage from "./pages/HttpError/NotFoundPage";
 import HowToPlay from "./pages/HowToPlay/HowToPlay";
 import Register from "./pages/Register/Register";
+import News from "./pages/News/News";
 
 /**
  * Renders the App component that wraps the entire application with the React Router and provides routing to child components.
@@ -47,6 +49,7 @@ const App = (): JSX.Element => {
                   </RequireAuth>
                 }
               />
+              <Route path="/news/:id" element={<News />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<Register />} />
               <Route path="/privacy-and-terms" element={<PrivacyAndTerms />} />
