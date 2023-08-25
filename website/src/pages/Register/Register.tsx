@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import "./register.css";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -65,6 +66,7 @@ const Register = () => {
       </Typography>
       <form onSubmit={handleRegister}>
         <TextField
+          className="test"
           variant="outlined"
           margin="normal"
           required
@@ -117,7 +119,7 @@ const Register = () => {
           type="submit"
           fullWidth
           variant="contained"
-          color="primary"
+          color="secondary"
           disabled={!isValidEmail(email)}
         >
           {t("register.form.send")}

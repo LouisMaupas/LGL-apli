@@ -1,0 +1,17 @@
+fieldset {
+    border-color: white !important;
+}
+
+label {
+    color: white !important;
+}
+
+form > div > div > input {
+    color: white !important;
+}
+
+/* button {
+    color: white !important;
+    border-color: white !important;
+    background-color: rgba(255, 255, 255, 0.116) !important;
+} */
