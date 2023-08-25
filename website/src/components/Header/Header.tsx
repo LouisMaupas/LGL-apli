@@ -51,7 +51,7 @@ const Header = (): JSX.Element => {
             <li>
               <button
                 onClick={() => {
-                  auth?.signout(() => {});
+                  auth?.signout();
                 }}
               >
                 {t("Logout")}

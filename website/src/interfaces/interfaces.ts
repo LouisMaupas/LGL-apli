@@ -21,7 +21,8 @@ interface HttpErrorProps {
   interface AuthContextType {
     user: User | null;
     signin: (user: User, callback: VoidFunction) => void;
-    signout: (callback: VoidFunction) => void;
+    // signout: (callback: VoidFunction) => void;
+    signout: any;
   }
 
 export type { HttpErrorProps, AuthProviderProps, AuthContextType, User };

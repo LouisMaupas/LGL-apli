@@ -45,10 +45,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
    *
    * @param {VoidFunction} callback - Callback function to be invoked after user is signed out.
    */
-  const signout = (callback: VoidFunction) => {
-    setUser(null);
-    callback();
-  };
+  const signout = () =>
+    // callback: VoidFunction
+    {
+      setUser(null);
+      // callback();
+    };
 
   const authContextValue: AuthContextType = {
     user: user,
