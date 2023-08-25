@@ -21,8 +21,7 @@ const LoginPage = () => {
     location = useLocation(),
     [apiError, setApiError] = useState(""),
     [authInstance, setAuthInstance] = useState<Auth | undefined>();
-  // let authInstance: Auth,
-  let from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     getAppInstance()
