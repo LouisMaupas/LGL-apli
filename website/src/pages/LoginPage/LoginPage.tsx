@@ -19,15 +19,17 @@ const LoginPage = () => {
     { t } = useTranslation(),
     navigate = useNavigate(),
     location = useLocation(),
-    [apiError, setApiError] = useState("");
-  let authInstance: Auth,
-    from = location.state?.from?.pathname || "/";
+    [apiError, setApiError] = useState(""),
+    [authInstance, setAuthInstance] = useState<Auth | undefined>();
+  // let authInstance: Auth,
+  let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     getAppInstance()
       .then((app) => {
         // Initialize Firebase Authentication and get a reference to the service
-        authInstance = getAuth(app);
+        const auth = getAuth(app);
+        setAuthInstance(auth);
       })
       .catch((error) => {
         console.error("Failed to initialize Firebase app:", error);
@@ -42,24 +44,29 @@ const LoginPage = () => {
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { email, password } = event.currentTarget;
-    signInWithEmailAndPassword(authInstance, email.value, password.value)
-      .then((userCredential) => {
-        // Adapt the Firebase user object to match with User type
-        const user: User = {
-          email: userCredential.user.email,
-          displayName: userCredential.user.displayName, // This is where you might need to adjust depending on how the name is stored in Firebase
-        };
-        auth?.signin(user, () => {
-          // Send them back to the page they tried to visit when they were
-          // redirected to the login page.
-          navigate(from, { replace: true });
+    if (authInstance) {
+      signInWithEmailAndPassword(authInstance, email.value, password.value)
+        .then((userCredential) => {
+          console.log("userCredential = ", userCredential);
+          // Adapt the Firebase user object to match with User type
+          const user: User = {
+            email: userCredential.user.email,
+            displayName: userCredential.user.displayName, // This is where you might need to adjust depending on how the name is stored in Firebase
+          };
+          auth?.signin(user, () => {
+            // Send them back to the page they tried to visit when they were
+            // redirected to the login page.
+            navigate(from, { replace: true });
+          });
+        })
+        .catch((error) => {
+          setApiError(
+            `${t("login.connexion.error")} ${error.code} ${error.message}`
+          );
         });
-      })
-      .catch((error) => {
-        setApiError(
-          `${t("login.connexion.error")} ${error.code} ${error.message}`
-        );
-      });
+    } else {
+      alert("Erreur lors de la récupération de l'instance de Firebase");
+    }
   };
 
   return (
