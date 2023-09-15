@@ -1,9 +1,14 @@
-main {
+.login-from-login-warning {
+    color: red;
+    margin-bottom: 1rem;
+}
+
+.login-page {
     display: flex;
     justify-content: center;
 }
 
-main > div {
+.login-page > div {
     display: flex;
     flex-direction: column;
     max-width: 950px;

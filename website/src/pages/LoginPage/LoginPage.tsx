@@ -83,10 +83,11 @@ const LoginPage = () => {
   };
 
   return (
-    <main>
-      {from !== "/" ? <div>{t("login.from.text")}</div> : null}
-
+    <main className="login-page">
       <div>
+        {from !== "/" ? (
+          <div className="login-from-login-warning">{t("login.from.text")}</div>
+        ) : null}
         <FormControl>
           <InputLabel htmlFor="my-input">Email address</InputLabel>
           <Input
@@ -103,6 +104,7 @@ const LoginPage = () => {
         <FormControl>
           <InputLabel htmlFor="my-input">Password</InputLabel>
           <Input
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
             id="password"
             aria-describedby="my-helper-text"
