@@ -1,0 +1,25 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+main > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+    width: 50%;
+}
+
+.firebase-error {
+    color: red;
+}
+
+#my-helper-text {
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    main > div {
+        width: auto;
+    }
+}

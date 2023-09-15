@@ -10,6 +10,7 @@ import { Button, TextField, Container, Typography } from "@mui/material";
 
 const Register = () => {
   const [email, setEmail] = useState(""),
+    [confirmEmail, setConfirmEmail] = useState(""),
     [password, setPassword] = useState(""),
     [confirmPassword, setConfirmPassword] = useState(""),
     [pseudo, setPseudo] = useState(""),
@@ -89,6 +90,17 @@ const Register = () => {
           autoFocus
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="confirmEmail"
+          label={t("register.form.confirmEmail")}
+          name="confirmEmail"
+          value={confirmEmail}
+          onChange={(e) => setConfirmEmail(e.target.value)}
         />
         <TextField
           variant="outlined"

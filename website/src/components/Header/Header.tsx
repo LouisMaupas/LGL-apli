@@ -68,7 +68,13 @@ const Header = (): JSX.Element => {
             </>
           )}
           <li>
-            <Select value={i18n.language} onChange={changeLanguage}>
+            <Select
+              value={i18n.language}
+              onChange={changeLanguage}
+              sx={{
+                ".MuiOutlinedInput-notchedOutline": { borderStyle: "none" },
+              }}
+            >
               <MenuItem value={"en"}>🌍English</MenuItem>
               <MenuItem value={"fr"}>🌍Français</MenuItem>
             </Select>

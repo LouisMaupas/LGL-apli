@@ -96,7 +96,7 @@ const Home = () => {
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }} className="news__card">
-          <CardMedia sx={{ height: 230 }} image={thumbElf} title="elf" />
+          <CardMedia sx={{ height: 230 }} image={thumbElf} title="faction" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {t("news_new_faction")}
@@ -110,7 +110,7 @@ const Home = () => {
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }} className="news__card">
-          <CardMedia sx={{ height: 230 }} image={thumbGear} title="elf" />
+          <CardMedia sx={{ height: 230 }} image={thumbGear} title="update" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {t("news_update")}
@@ -124,7 +124,7 @@ const Home = () => {
           </CardActions>
         </Card>
         <Card sx={{ maxWidth: 345 }} className="news__card">
-          <CardMedia sx={{ height: 230 }} image={thumbMulti} title="elf" />
+          <CardMedia sx={{ height: 230 }} image={thumbMulti} title="esport" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {t("news_esport")}

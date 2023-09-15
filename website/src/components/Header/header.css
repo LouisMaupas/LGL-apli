@@ -48,6 +48,10 @@ header {
     background-color: #555;
   }
 
+  select {
+    border: none;
+  }
+
   @media only screen and (max-width: 600px) {
     header {
       height: auto;

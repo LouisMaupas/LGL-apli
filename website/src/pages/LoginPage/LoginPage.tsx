@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -6,6 +6,15 @@ import { getAppInstance } from "../../utils/firebase/Firebase";
 import { useEffect } from "react";
 import { useAuth } from "../../AuthProvider";
 import { User } from "../../interfaces/interfaces";
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Input,
+  InputLabel,
+} from "@mui/material";
+import "./style.css";
 
 /**
  * Renders a login page that allows users to sign in with their credentials. If the login is successful,
@@ -19,6 +28,8 @@ const LoginPage = () => {
     { t } = useTranslation(),
     navigate = useNavigate(),
     location = useLocation(),
+    [email, setEmail] = useState(""),
+    [password, setPassword] = useState(""),
     [apiError, setApiError] = useState(""),
     [authInstance, setAuthInstance] = useState<Auth | undefined>();
   const from = location.state?.from?.pathname || "/";
@@ -38,13 +49,12 @@ const LoginPage = () => {
   /**
    * Handles the login form submission
    *
-   * @param {React.FormEvent<HTMLFormElement>} event - The form submit event.
+   * @param {React.FormEvent} event - The form submit event.
    */
-  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
-    const { email, password } = event.currentTarget;
     if (authInstance) {
-      signInWithEmailAndPassword(authInstance, email.value, password.value)
+      signInWithEmailAndPassword(authInstance, email, password)
         .then((userCredential) => {
           console.log("userCredential = ", userCredential);
           // Adapt the Firebase user object to match with User type
@@ -59,9 +69,14 @@ const LoginPage = () => {
           });
         })
         .catch((error) => {
-          setApiError(
-            `${t("login.connexion.error")} ${error.code} ${error.message}`
-          );
+          if (error.code === "auth/wrong-password") {
+            setApiError(`${t("login.form.error.wrongPassword")}`);
+          } else if (error.code === "auth/invalid-email") {
+            setApiError(`${t("login.form.error.invalidEmail")}`);
+          } else {
+            setApiError(`Erreur FIREBASE ${error.code} ${error.message}`);
+          }
+          console.error(`Erreur FIREBASE ${error.code} ${error.message}`);
         });
     } else {
       alert("Erreur lors de la récupération de l'instance de Firebase");
@@ -69,20 +84,46 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <main>
       {from !== "/" ? <div>{t("login.from.text")}</div> : null}
-      <form onSubmit={handleLogin}>
-        <label>
-          {t("login.form.email")} : <input name="email" type="email" />
-        </label>{" "}
-        <label>
-          {t("login.form.password")} : <input name="password" type="password" />
-        </label>
-        <button type="submit">{t("login.form.submit")}</button>
-      </form>
 
-      <p>{apiError}</p>
-    </div>
+      <div>
+        <FormControl>
+          <InputLabel htmlFor="my-input">Email address</InputLabel>
+          <Input
+            onChange={(e) => setEmail(e.target.value)}
+            id="email"
+            aria-describedby="my-helper-text"
+            sx={{ color: "white" }}
+          />
+          <FormHelperText id="my-helper-text" color="success">
+            {t("login.form.helper-email")}
+          </FormHelperText>
+        </FormControl>
+        <br />
+        <FormControl>
+          <InputLabel htmlFor="my-input">Password</InputLabel>
+          <Input
+            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            aria-describedby="my-helper-text"
+            sx={{ color: "white" }}
+          />
+        </FormControl>
+        <br />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={(ev: React.FormEvent) => handleLogin(ev)}
+        >
+          {t("login.form.submit")}
+        </Button>
+        <p className="firebase-error">{apiError}</p>
+        <Link to="/register">{t("login.form.signup")}</Link>
+      </div>
+    </main>
   );
 };
 

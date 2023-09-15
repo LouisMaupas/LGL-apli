@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./style.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import iconValue from "../../assets/icon_value.png";
@@ -10,7 +11,7 @@ const HowToPlay = () => {
   const { t } = useTranslation();
   return (
     <>
-      <div>
+      <main>
         <p>
           {t("howToPlay.description.term1")}
           {t("howToPlay.description.term2")}{" "}
@@ -41,7 +42,7 @@ const HowToPlay = () => {
           <li>{t("howToPlay.game")}</li>
           <li>{t("howToPlay.round")}</li>
           <li>{t("howToPlay.duel")}</li>
-          <li>{t("howToPlay.power.desc")}</li>
+          <li>{t("howToPlay.power-desc")}</li>
           <li>
             <span id="value">{t("howToPlay.value")}</span>
             {t("howToPlay.valueDesc")}
@@ -49,7 +50,7 @@ const HowToPlay = () => {
           <li>{t("howToPlay.cost")}</li>
           <li>
             <span id="po">{t("howToPlay.goldCoin")}</span>
-            {t("howToPlay.goldCoin.desc")}
+            {t("howToPlay.goldCoin-desc")}
           </li>
           <li>{t("howToPlay.effect")}</li>
         </ul>
@@ -79,7 +80,7 @@ const HowToPlay = () => {
           <li>{t("howToPlay.deckCostLimit")}</li>
           <li>{t("howToPlay.cardDuplicates")}</li>
         </ul>
-      </div>
+      </main>
     </>
   );
 };
